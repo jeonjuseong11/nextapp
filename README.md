@@ -99,3 +99,15 @@ export default function Home() {
 ### src/app/global.css
 
 여기 스타일 또한 모두 제거하게 되면 개발할 준비가 완료되게 된다
+
+## **배포**
+
+### npm run build
+
+실제 배포를 위한 배포판이 .next폴더가 생성됨
+
+### npm run start
+
+.next에 저장된 내용이 서비스 되기 시작함
+
+## **뼈대 만들기**
