@@ -12,15 +12,15 @@ export default function RootLayout({ children }) {
       <body>
         <h1>
           <Link href="/">WEB</Link>
-          <ol>
-            <li>
-              <Link href="/read/1">html</Link>
-            </li>
-            <li>
-              <Link href="/read/2">css</Link>
-            </li>
-          </ol>
         </h1>
+        <ol>
+          <li>
+            <Link href="/read/1">html</Link>
+          </li>
+          <li>
+            <Link href="/read/2">css</Link>
+          </li>
+        </ol>
         {children}
         <ul>
           <li>
