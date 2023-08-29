@@ -110,4 +110,75 @@ export default function Home() {
 
 .next에 저장된 내용이 서비스 되기 시작함
 
-## **뼈대 만들기**
+## **ROUTING (라우팅)**
+
+src/app 폴더 밑에 추가할 페이지 폴더를 생성
+create폴더 생성 후 page.js 생성  
+**page.js**
+
+```js
+export default function Create() {
+  return <>Create</>;
+}
+```
+
+이렇게 만들어주면 app폴더 안에 있는 layout.js의 children의 안에 들어가게 된다  
+하지만 해당 페이지에서 또 반복되는 것이 있으면 create 폴더 내부에 layout.js를 생성
+
+```js
+export default function Layout(props) {
+  return (
+    <form>
+      <h2>Create</h2>
+      {props.children}
+    </form>
+  );
+}
+```
+
+이렇게 함으로써 /create 주소를 갖는 페이지들의 공통 layout 생성 가능
+
+### **동적 라우팅**
+
+app폴더 내부의 layout.js를 살펴보면
+
+```js
+
+          <a href="/">WEB</a>
+          <ol>
+            <li>
+              <a href="/read/1">html</a>
+            </li>
+            <li>
+              <a href="/read/2">css</a>
+            </li>
+          </ol>
+        {children}
+        <ul>
+          <li>
+            <a href="/create">create</a>
+          </li>
+          <li>
+            <a href="/update/1">update</a>
+          </li>
+
+
+```
+
+이렇게 주소 뒤에 숫자가 나오는 경우 동적 라우팅을 한다  
+똑같이 페이지의 폴더를 생성해주고  
+그 안에 해당 파라미터의 명칭을 대괄호로 감싼 폴더를 만들어 주면 된다.
+
+[id] 폴더 내부에 page.js를 생성  
+해당 파라미터는 props.params를 통해 받을 수 있음
+
+```js
+export default function Read(props) {
+  return (
+    <>
+      <h2>Read</h2>
+      parameter : {props.params.id}
+    </>
+  );
+}
+```
